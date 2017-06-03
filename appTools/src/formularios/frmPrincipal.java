@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package formularios;
-/**
- *
- * @author JULIO
- */
+
 public class frmPrincipal extends javax.swing.JFrame {
 
     /**
@@ -32,6 +25,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jmNuevo = new javax.swing.JMenuItem();
         jmBuscar = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenuItem();
+        jmHerramientas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,6 +44,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jmInicio.setText("Inicio");
 
         jmNuevo.setText("Nuevo");
+        jmNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmNuevoActionPerformed(evt);
+            }
+        });
         jmInicio.add(jmNuevo);
 
         jmBuscar.setText("Buscar");
@@ -67,6 +66,14 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
         jmInicio.add(jmSalir);
+
+        jmHerramientas.setText("Herramientas");
+        jmHerramientas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmHerramientasActionPerformed(evt);
+            }
+        });
+        jmInicio.add(jmHerramientas);
 
         jmPrincipal.add(jmInicio);
 
@@ -90,16 +97,30 @@ public class frmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarActionPerformed
-        // TODO add your handling code here:
+        
         frmConsultar objConsultar = new frmConsultar();
         jEscritorio.add(objConsultar);
         objConsultar.setVisible(true);
     }//GEN-LAST:event_jmBuscarActionPerformed
 
     private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
-        // TODO add your handling code here:
+        
         this.dispose();
     }//GEN-LAST:event_jmSalirActionPerformed
+
+    private void jmNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNuevoActionPerformed
+        
+        frmNuevoEmpleado objNuevoEmpleado = new frmNuevoEmpleado();
+        jEscritorio.add(objNuevoEmpleado);
+        objNuevoEmpleado.setVisible(true);
+    }//GEN-LAST:event_jmNuevoActionPerformed
+
+    private void jmHerramientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmHerramientasActionPerformed
+        
+        frmHerramientas objFrmHerramientas = new frmHerramientas();
+        jEscritorio.add(objFrmHerramientas);
+        objFrmHerramientas.setVisible(true);
+    }//GEN-LAST:event_jmHerramientasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,6 +161,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane jEscritorio;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jmBuscar;
+    private javax.swing.JMenuItem jmHerramientas;
     private javax.swing.JMenu jmInicio;
     private javax.swing.JMenuItem jmNuevo;
     private javax.swing.JMenuBar jmPrincipal;

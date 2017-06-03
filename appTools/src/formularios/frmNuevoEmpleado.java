@@ -1,15 +1,16 @@
 
 package formularios;
+import clases.claseEmpleados;
 import clases.claseEditarEmpleado;
 import javax.swing.JOptionPane;
 
 
-public class frmEditarEmpleado extends javax.swing.JInternalFrame {
+public class frmNuevoEmpleado extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmEditarEmpleado
      */
-    public frmEditarEmpleado() {
+    public frmNuevoEmpleado() {
         initComponents();
     }
 
@@ -23,8 +24,6 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPrimerNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -46,45 +45,16 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
         cmbEstado = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
-        btnEliminar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Edición de Empleados");
+        setTitle("Registro de Empleados");
         setMaximumSize(new java.awt.Dimension(467, 467));
         setPreferredSize(new java.awt.Dimension(467, 559));
-        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameClosed(evt);
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Monaco", 0, 18)); // NOI18N
-        jLabel1.setText("Edición de Empleados");
-
-        jLabel2.setFont(new java.awt.Font("Monaco", 0, 11)); // NOI18N
-        jLabel2.setText("ID:");
-
-        txtId.setEditable(false);
-        txtId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Registro de Empleados");
 
         jLabel3.setFont(new java.awt.Font("Monaco", 0, 11)); // NOI18N
         jLabel3.setText("Primer Nombre:");
@@ -128,19 +98,11 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Monaco", 0, 11)); // NOI18N
         jLabel12.setText("Fecha:");
 
-        btnEliminar.setFont(new java.awt.Font("Monaco", 0, 11)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setFont(new java.awt.Font("Monaco", 0, 11)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnModificar.setFont(new java.awt.Font("Monaco", 0, 11)); // NOI18N
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -158,7 +120,7 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificar)
+                            .addComponent(btnAgregar)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,31 +135,21 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
                             .addComponent(txtFecha)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 14, Short.MAX_VALUE)))
                         .addGap(333, 333, 333))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(txtNit)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNit, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
-                                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(btnEliminar)))
+                                .addComponent(txtDui, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(57, 57, 57))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(35, 35, 35)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(35, 35, 35))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -205,27 +157,24 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel9))
                         .addGap(22, 22, 22)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtSegundoApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtPrimerApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtSegundoNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPrimerNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
-                .addGap(288, 288, 288))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtSegundoApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPrimerApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSegundoNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPrimerNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                .addGap(314, 314, 314))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtPrimerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,101 +223,52 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
                         .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(btnModificar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(btnAgregar)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        
-        claseEditarEmpleado objEditar = new claseEditarEmpleado();
-        objEditar.idEmpleado = Integer.parseInt(txtId.getText());
-        objEditar.cargarDatos();
-        txtPrimerNombre.setText(objEditar.pNombre);
-        txtSegundoNombre.setText(objEditar.sNombre);
-        txtPrimerApellido.setText(objEditar.pApellido);
-        txtSegundoApellido.setText(objEditar.sApellido);
-        txtDui.setText(objEditar.dui);
-        txtNit.setText(objEditar.nit);
-        txtDireccion.setText(objEditar.direccion);
-        txtTelefono.setText(objEditar.telefono);
-        cmbEstado.setSelectedIndex(objEditar.estado);
-        txtFecha.setText(objEditar.fecha);
-    }//GEN-LAST:event_formInternalFrameOpened
-
     private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
-    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
-      
-        frmConsultar objConsultar = new frmConsultar();
-        frmPrincipal.jEscritorio.add(objConsultar);
-        objConsultar.setVisible(true);
-    }//GEN-LAST:event_formInternalFrameClosed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
        
-        claseEditarEmpleado objEditar = new claseEditarEmpleado();
-        objEditar.idEmpleado = Integer.parseInt(txtId.getText());
-        objEditar.pNombre = txtPrimerNombre.getText();
-        objEditar.sNombre = txtSegundoNombre.getText();
-        objEditar.pApellido = txtPrimerApellido.getText();
-        objEditar.sApellido = txtSegundoApellido.getText();
-        objEditar.dui = txtDui.getText();
-        objEditar.nit = txtNit.getText();
-        objEditar.direccion = txtDireccion.getText();
-        objEditar.telefono = txtTelefono.getText();
-        objEditar.estado = cmbEstado.getSelectedIndex();
-        objEditar.fecha = txtFecha.getText();
-        objEditar.modificarEmpleado();
-        frmConsultar objConsultar = new frmConsultar();
-        frmPrincipal.jEscritorio.add(objConsultar);
-        objConsultar.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        
-        int resultado;
-        resultado = JOptionPane.showConfirmDialog(this, " ¿Está seguro?",
-                null, JOptionPane.YES_NO_OPTION);
-        if(resultado == JOptionPane.YES_OPTION){
-             claseEditarEmpleado objEditar = new claseEditarEmpleado();
-             objEditar.idEmpleado = Integer.parseInt(txtId.getText());
-             if(objEditar.eliminarEmpleado()==true){
-                 frmConsultar objConsultar = new frmConsultar();
-                 frmPrincipal.jEscritorio.add(objConsultar);
-                 objConsultar.setVisible(true);
-                 this.dispose();
-             }else{
-                 JOptionPane.showMessageDialog(this, "Error no se pudo eliminar");
-             }
+        claseEmpleados objEmpleado = new claseEmpleados();
+       
+        objEmpleado.pNombre = txtPrimerNombre.getText();
+        objEmpleado.sNombre = txtSegundoNombre.getText();
+        objEmpleado.pApellido = txtPrimerApellido.getText();
+        objEmpleado.sApellido = txtSegundoApellido.getText();
+        objEmpleado.dui = txtDui.getText();
+        objEmpleado.nit = txtNit.getText();
+        objEmpleado.direccion = txtDireccion.getText();
+        objEmpleado.telefono = txtTelefono.getText();
+        //objEmpleado.estado = cmbEstado.getSelectedIndex();
+        objEmpleado.fecha = txtFecha.getText();
+        objEmpleado.agregarEmpleado();
+        if(objEmpleado.estadoComando ==true){
+            frmConsultar objConsultar = new frmConsultar();
+            frmPrincipal.jEscritorio.add(objConsultar);
+            objConsultar.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, " Error al guardar");
         }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdActionPerformed
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnAgregar;
     public javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -380,7 +280,6 @@ public class frmEditarEmpleado extends javax.swing.JInternalFrame {
     public javax.swing.JTextArea txtDireccion;
     public javax.swing.JTextField txtDui;
     public javax.swing.JTextField txtFecha;
-    public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtNit;
     public javax.swing.JTextField txtPrimerApellido;
     public javax.swing.JTextField txtPrimerNombre;

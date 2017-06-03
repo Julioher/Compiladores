@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package formularios;
 import clases.claseConsultar;
-/**
- *
- * @author JULIO
- */
+
 public class frmConsultar extends javax.swing.JInternalFrame {
 
     /**
@@ -126,13 +119,13 @@ public class frmConsultar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        // TODO add your handling code here:
+      
         claseConsultar objModelo = new claseConsultar();
         objModelo.generarModelo(jtEmpleados, "SELECT * FROM empleados order by pApellido");
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+       
         claseConsultar objModelo = new claseConsultar();
         String filtro = txtFiltro.getText();
         String consulta = "SELECT * FROM empleados WHERE"
@@ -143,12 +136,12 @@ public class frmConsultar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jtEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEmpleadosMouseClicked
-        // TODO add your handling code here:
+       
         if(evt.getClickCount()==2){
             String id="";
             int row = jtEmpleados.rowAtPoint(evt.getPoint());
             if(row >= 0 && jtEmpleados.isEnabled()){
-                id = jtEmpleados.getValueAt(row,0).toString();
+                id = jtEmpleados.getValueAt(row, 0).toString();
                 frmEditarEmpleado objEditar = new frmEditarEmpleado();
                 objEditar.txtId.setText(id);
                 frmPrincipal.jEscritorio.add(objEditar);
