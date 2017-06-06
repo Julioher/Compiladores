@@ -1,6 +1,6 @@
 
 package formularios;
-
+import formularios.frmEmpleados;
 public class frmPrincipal extends javax.swing.JFrame {
 
     /**
@@ -43,7 +43,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jmInicio.setText("Inicio");
 
-        jmNuevo.setText("Nuevo");
+        jmNuevo.setText("Empleados");
         jmNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmNuevoActionPerformed(evt);
@@ -98,9 +98,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void jmBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarActionPerformed
         
-        frmConsultar objConsultar = new frmConsultar();
-        jEscritorio.add(objConsultar);
-        objConsultar.setVisible(true);
+        
     }//GEN-LAST:event_jmBuscarActionPerformed
 
     private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
@@ -110,9 +108,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void jmNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNuevoActionPerformed
         
-        frmNuevoEmpleado objNuevoEmpleado = new frmNuevoEmpleado();
-        jEscritorio.add(objNuevoEmpleado);
-        objNuevoEmpleado.setVisible(true);
+        frmEmpleados objFrmEmpleado = new frmEmpleados();
+        jEscritorio.add(objFrmEmpleado);
+        objFrmEmpleado.setVisible(true);
     }//GEN-LAST:event_jmNuevoActionPerformed
 
     private void jmHerramientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmHerramientasActionPerformed

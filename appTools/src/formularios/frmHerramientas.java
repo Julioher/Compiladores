@@ -280,7 +280,6 @@ public class frmHerramientas extends javax.swing.JInternalFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         
-        
         txtDescripcion.setText(null);
        limpiarAhora limpiar = new limpiarAhora();
        limpiar.limpiarCampos(jPanel1);

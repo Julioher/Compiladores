@@ -111,7 +111,7 @@ public class claseHerramienta extends DefaultTableModel{
     }
     
    //Método para cargar los datos en las cajas de texto
-    public void cargarDatos(){
+    /*public void cargarDatos(){
         try{
             claseConexion laConexion = new claseConexion();
             laConexion.conectar();
@@ -132,7 +132,7 @@ public class claseHerramienta extends DefaultTableModel{
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error"+ e.getMessage());
         }
-    }
+    }*/
     
     //Método para modificar cualquier campo de la tabla herramientas
     public void modificarHerramienta(){
