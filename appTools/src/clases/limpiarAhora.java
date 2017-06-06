@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ComboBoxModel;
 
 public class limpiarAhora {
     
@@ -26,6 +27,8 @@ public class limpiarAhora {
                 ((JTextArea)jPanel1.getComponents()[i]).setText("");
                 
             }
+            
+           
         }
     }
 }

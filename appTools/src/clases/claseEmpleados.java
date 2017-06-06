@@ -9,7 +9,7 @@ public class claseEmpleados extends DefaultTableModel{
     
     private final claseConexion laConexion = new claseConexion();
     public int idEmpleado;
-    //public int estado;
+    public int estado;
     public String pNombre;
     public String sNombre;
     public String pApellido;
@@ -21,13 +21,13 @@ public class claseEmpleados extends DefaultTableModel{
     public String fecha;
     public Boolean estadoComando = false;
 
-    /*public int getEstado() {
+    public int getEstado() {
         return estado;
     }
 
     public void setEstado(int estado) {
         this.estado = estado;
-    }*/
+    }
 
     public int getIdEmpleado() {
         return idEmpleado;
@@ -114,8 +114,8 @@ public class claseEmpleados extends DefaultTableModel{
         try{
             String comandoSQL = "INSERT INTO empleados"
             + "(pNombre, sNombre, pApellido, sApellido, dui, nit,"
-                    + "direccion, telefono, fecha) VALUES"
-            + "(?,?,?,?,?,?,?,?,?)";
+                    + "direccion, telefono, estado, fecha) VALUES"
+            + "(?,?,?,?,?,?,?,?,?,?)";
             laConexion.conectar();
             PreparedStatement elComandoSQL;
             elComandoSQL = laConexion.objetoConexion.prepareStatement(comandoSQL);
@@ -127,7 +127,8 @@ public class claseEmpleados extends DefaultTableModel{
             elComandoSQL.setString(6, nit);
             elComandoSQL.setString(7, direccion);
             elComandoSQL.setString(8, telefono);
-            elComandoSQL.setString(9, fecha);
+           elComandoSQL.setInt(9, estado);
+            elComandoSQL.setString(10, fecha);
             elComandoSQL.executeUpdate();
             this.estadoComando = true;
             laConexion.desconectar();
@@ -157,10 +158,11 @@ public class claseEmpleados extends DefaultTableModel{
             this.addColumn("NIT");
             this.addColumn("Dirección");
             this.addColumn("Teléfono");
+            this.addColumn("Estado");
             this.addColumn("Fecha");
             
             while(objResultado.next()){
-                Object[] objFila = new Object[10];
+                Object[] objFila = new Object[11];
                 objFila[0] = objResultado.getObject("idEmpleado").toString();
                 objFila[1] = objResultado.getObject("pNombre").toString();
                 objFila[2] = objResultado.getObject("sNombre").toString();
@@ -170,7 +172,8 @@ public class claseEmpleados extends DefaultTableModel{
                 objFila[6] = objResultado.getObject("nit").toString();
                 objFila[7] = objResultado.getObject("direccion").toString();
                 objFila[8] = objResultado.getObject("telefono").toString();
-                objFila[9] = objResultado.getObject("fecha").toString();
+                objFila[9] = objResultado.getObject("estado").hashCode();
+                objFila[10] = objResultado.getObject("fecha").toString();
                 this.addRow(objFila);
             }
             laTabla.setModel(this);
@@ -180,36 +183,6 @@ public class claseEmpleados extends DefaultTableModel{
             JOptionPane.showMessageDialog(null, "Error: "+ elError.getMessage());
         }
     }
-   
-   //Método para cargar los datos en las cajas de texto
-      /*public void cargarDatos(){
-        try{
-            claseConexion laConexion = new claseConexion();
-            laConexion.conectar();
-            String comando = "SELECT * FROM empleados WHERE idEmpleado=?";
-            PreparedStatement elComando;
-            elComando = laConexion.objetoConexion.prepareStatement(comando);
-            elComando.setInt(1, this.idEmpleado);
-            ResultSet resultado = elComando.executeQuery();
-            
-            if(resultado.next()){
-                this.pNombre = resultado.getString("pNombre");
-                this.sNombre = resultado.getString("sNombre");
-                this.pApellido = resultado.getString("pApellido");
-                this.sApellido = resultado.getString("sApellido");
-                this.dui = resultado.getString("dui");
-                this.nit = resultado.getString("nit");
-                this.direccion = resultado.getString("direccion");
-                this.direccion = resultado.getString("telefono");
-              
-                this.fecha = resultado.getString("fecha");
-                resultado.close();
-            }
-            laConexion.desconectar();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error"+ e.getMessage());
-        }
-    }*/
     
     //Método para modificar cualquier campo de la tabla empleados
     public void modificarEmpleados(){
@@ -218,7 +191,7 @@ public class claseEmpleados extends DefaultTableModel{
              laConexion.conectar();
             String comando = "UPDATE empleados SET pNombre=?, sNombre=?,"
                  +"pApellido=?, sApellido=?, dui=?, nit=?, direccion=?,"
-                    + "telefono=?, fecha=?  WHERE idEmpleado=?";
+                    + "telefono=?, estado=?, fecha=?  WHERE idEmpleado=?";
             PreparedStatement elComando;
             elComando = laConexion.objetoConexion.prepareStatement(comando);
             
@@ -230,8 +203,9 @@ public class claseEmpleados extends DefaultTableModel{
             elComando.setString(6, this.nit);
             elComando.setString(7, this.direccion);
             elComando.setString(8, this.telefono);
-            elComando.setString(9, this.fecha);
-            elComando.setInt(10, this.idEmpleado);
+            elComando.setInt(9, this.estado);
+            elComando.setString(10, this.fecha);
+            elComando.setInt(11, this.idEmpleado);
             
             elComando.executeUpdate();
             laConexion.desconectar();  

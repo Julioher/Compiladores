@@ -271,8 +271,7 @@ public class frmHerramientas extends javax.swing.JInternalFrame {
         objClaseHerramienta.agregarHerramienta();
         if(objClaseHerramienta.estadoComando == true){
             JOptionPane.showMessageDialog(this, "Datos guardados");
-            limpiarAhora limpiar = new limpiarAhora();
-            limpiar.limpiarCampos(jPanel1);
+             this.dispose();
         }else{
              JOptionPane.showMessageDialog(this, "Error al guardar");
         }

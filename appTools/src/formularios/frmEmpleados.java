@@ -107,6 +107,11 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
         jLabel11.setText("Estado:");
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el estado", "Activo", "Inactivo" }));
+        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEstadoActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Fecha:");
 
@@ -329,12 +334,12 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
          objEmpleado.setNit(txtNit.getText());
          objEmpleado.setDireccion(txtAreaDireccion.getText());
          objEmpleado.setTelefono(txtTelefono.getText());
+         objEmpleado.setEstado(cmbEstado.getSelectedIndex());
          objEmpleado.setFecha(txtFecha.getText());
          objEmpleado.agregarEmpleado();
          if(objEmpleado.estadoComando == true){
             JOptionPane.showMessageDialog(this, "Datos guardados");
-            limpiarAhora limpiar = new limpiarAhora();
-            limpiar.limpiarCampos(jPanel1);
+            this.dispose();
         }else{
              JOptionPane.showMessageDialog(this, "Error al guardar");
         }
@@ -343,6 +348,7 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
        
+       cmbEstado.setSelectedIndex(0); 
        txtAreaDireccion.setText(null); 
        limpiarAhora limpiar = new limpiarAhora();
        limpiar.limpiarCampos(jPanel1);
@@ -371,7 +377,8 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
         txtNit.setText(String.valueOf(jtEmpleados.getValueAt(row, 6)));
         txtAreaDireccion.setText(String.valueOf(jtEmpleados.getValueAt(row, 7)));
         txtTelefono.setText(String.valueOf(jtEmpleados.getValueAt(row, 8)));
-        txtFecha.setText(String.valueOf(jtEmpleados.getValueAt(row, 9)));  
+        cmbEstado.setSelectedIndex(Integer.parseInt(String.valueOf(jtEmpleados.getValueAt(row, 9))));
+        txtFecha.setText(String.valueOf(jtEmpleados.getValueAt(row, 10)));  
     }//GEN-LAST:event_jtEmpleadosMouseClicked
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -386,6 +393,7 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
          objEmpleado.nit = txtNit.getText();
          objEmpleado.direccion = txtAreaDireccion.getText();
          objEmpleado.telefono = txtTelefono.getText();
+         objEmpleado.estado = cmbEstado.getSelectedIndex();
          objEmpleado.fecha = txtFecha.getText();
          objEmpleado.modificarEmpleados();
          frmEmpleados objFrmEmpleados = new frmEmpleados();
@@ -412,6 +420,10 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
              }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEstadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
