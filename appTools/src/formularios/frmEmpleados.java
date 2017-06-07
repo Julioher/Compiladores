@@ -339,7 +339,10 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
          objEmpleado.agregarEmpleado();
          if(objEmpleado.estadoComando == true){
             JOptionPane.showMessageDialog(this, "Datos guardados");
-            this.dispose();
+            cmbEstado.setSelectedIndex(0); 
+            txtAreaDireccion.setText(null); 
+            limpiarAhora limpiar = new limpiarAhora();
+            limpiar.limpiarCampos(jPanel1);
         }else{
              JOptionPane.showMessageDialog(this, "Error al guardar");
         }

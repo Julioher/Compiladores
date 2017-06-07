@@ -1,6 +1,8 @@
 
 package formularios;
 import formularios.frmEmpleados;
+
+
 public class frmPrincipal extends javax.swing.JFrame {
 
     /**
@@ -23,7 +25,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jmPrincipal = new javax.swing.JMenuBar();
         jmInicio = new javax.swing.JMenu();
         jmNuevo = new javax.swing.JMenuItem();
-        jmBuscar = new javax.swing.JMenuItem();
+        jmCargos = new javax.swing.JMenuItem();
         jmSalir = new javax.swing.JMenuItem();
         jmHerramientas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -51,13 +53,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         jmInicio.add(jmNuevo);
 
-        jmBuscar.setText("Buscar");
-        jmBuscar.addActionListener(new java.awt.event.ActionListener() {
+        jmCargos.setText("Cargos");
+        jmCargos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmBuscarActionPerformed(evt);
+                jmCargosActionPerformed(evt);
             }
         });
-        jmInicio.add(jmBuscar);
+        jmInicio.add(jmCargos);
 
         jmSalir.setText("Salir");
         jmSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +98,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarActionPerformed
+    private void jmCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargosActionPerformed
         
+        frmCargos objFrmCargo = new frmCargos();
+        jEscritorio.add(objFrmCargo);
+        objFrmCargo.setVisible(true);
         
-    }//GEN-LAST:event_jmBuscarActionPerformed
+    }//GEN-LAST:event_jmCargosActionPerformed
 
     private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
         
@@ -158,7 +163,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane jEscritorio;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuItem jmBuscar;
+    private javax.swing.JMenuItem jmCargos;
     private javax.swing.JMenuItem jmHerramientas;
     private javax.swing.JMenu jmInicio;
     private javax.swing.JMenuItem jmNuevo;
