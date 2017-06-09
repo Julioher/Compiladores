@@ -364,8 +364,6 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
                  String consulta ="SELECT * FROM empleados WHERE "
                   + "pNombre LIKE '%"+FiltroPrimerNombre+"%'" ;
                   objModelo.generarModelo(jtEmpleados, consulta);
-               
-   
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void jtEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtEmpleadosMouseClicked
@@ -380,7 +378,7 @@ public class frmEmpleados extends javax.swing.JInternalFrame {
         txtNit.setText(String.valueOf(jtEmpleados.getValueAt(row, 6)));
         txtAreaDireccion.setText(String.valueOf(jtEmpleados.getValueAt(row, 7)));
         txtTelefono.setText(String.valueOf(jtEmpleados.getValueAt(row, 8)));
-        cmbEstado.setSelectedIndex(Integer.parseInt(String.valueOf(jtEmpleados.getValueAt(row, 9))));
+        cmbEstado.setSelectedItem(String.valueOf(jtEmpleados.getValueAt(row, 9)));
         txtFecha.setText(String.valueOf(jtEmpleados.getValueAt(row, 10)));  
     }//GEN-LAST:event_jtEmpleadosMouseClicked
 

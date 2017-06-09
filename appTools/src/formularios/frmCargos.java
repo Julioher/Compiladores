@@ -236,6 +236,7 @@ public class frmCargos extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
+       
         claseCargos objCargo = new claseCargos();
         objCargo.setCargo(txtCargo.getText());
         objCargo.setFecha(txtFecha.getText());
@@ -247,6 +248,7 @@ public class frmCargos extends javax.swing.JInternalFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Error al guardar");
         } 
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed

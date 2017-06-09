@@ -142,6 +142,22 @@ public class claseEmpleados extends DefaultTableModel{
         return false;
     }
     
+    public String nombreEstado(int i){
+        String estado="";
+        switch (i) {
+            case 1:
+                estado = "Activo";
+                break;
+            case 2:
+                estado = "Inactivo";
+                break;
+            default:
+                estado = "";
+                break;
+        }
+        return estado;
+    }
+    
     //método para llenar el JTable
  public void generarModelo(JTable laTabla, String consulta){
         try{
@@ -172,7 +188,7 @@ public class claseEmpleados extends DefaultTableModel{
                 objFila[6] = objResultado.getObject("nit").toString();
                 objFila[7] = objResultado.getObject("direccion").toString();
                 objFila[8] = objResultado.getObject("telefono").toString();
-                objFila[9] = objResultado.getObject("estado").hashCode();
+                objFila[9] = this.nombreEstado(objResultado.getInt("estado"));
                 objFila[10] = objResultado.getObject("fecha").toString();
                 this.addRow(objFila);
             }
@@ -184,6 +200,9 @@ public class claseEmpleados extends DefaultTableModel{
         }
     }
     
+ 
+     
+ 
     //Método para modificar cualquier campo de la tabla empleados
     public void modificarEmpleados(){
          try{
