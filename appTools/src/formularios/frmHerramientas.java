@@ -71,6 +71,12 @@ public class frmHerramientas extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Herramienta:");
 
+        txtHerramienta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtHerramientaKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Descripción:");
 
         txtDescripcion.setColumns(20);
@@ -79,7 +85,19 @@ public class frmHerramientas extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Stock:");
 
+        txtStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockKeyTyped(evt);
+            }
+        });
+
         jLabel5.setText("fecha:");
+
+        txtFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFechaKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel6.setText("Herramientas");
@@ -347,6 +365,36 @@ public class frmHerramientas extends javax.swing.JInternalFrame {
              }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void txtFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaKeyTyped
+       
+        char validar= evt.getKeyChar();
+        if(Character.isLetter(validar)){
+             getToolkit().beep();
+             evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Ingrese números solamente");
+        }
+    }//GEN-LAST:event_txtFechaKeyTyped
+
+    private void txtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockKeyTyped
+        
+        char validar= evt.getKeyChar();
+        if(Character.isLetter(validar)){
+             getToolkit().beep();
+             evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Ingrese números solamente");
+        }
+    }//GEN-LAST:event_txtStockKeyTyped
+
+    private void txtHerramientaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHerramientaKeyTyped
+        
+        char validar= evt.getKeyChar();
+        if(Character.isDigit(validar)){
+             getToolkit().beep();
+             evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Ingrese números solamente");
+        }
+    }//GEN-LAST:event_txtHerramientaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

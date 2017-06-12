@@ -41,7 +41,6 @@ public class claseCargos  extends DefaultTableModel{
         try{
              String comandoSQL = "INSERT INTO cargos"
             + "(cargo, fecha) VALUES (?,?)";
-            
              laConexion.conectar();
             PreparedStatement elComandoSQL;
             elComandoSQL = laConexion.objetoConexion.prepareStatement(comandoSQL);

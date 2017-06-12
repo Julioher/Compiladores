@@ -69,7 +69,19 @@ public class frmCargos extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Cargo:");
 
+        txtCargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCargoKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Fecha:");
+
+        txtFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFechaKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,8 +101,8 @@ public class frmCargos extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtIdCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +248,6 @@ public class frmCargos extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-       
         claseCargos objCargo = new claseCargos();
         objCargo.setCargo(txtCargo.getText());
         objCargo.setFecha(txtFecha.getText());
@@ -311,6 +322,26 @@ public class frmCargos extends javax.swing.JInternalFrame {
          objFrmCargos.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void txtCargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCargoKeyTyped
+        
+        char validar= evt.getKeyChar();
+        if(Character.isDigit(validar)){
+             getToolkit().beep();
+             evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Ingrese letras solamente");
+        }
+    }//GEN-LAST:event_txtCargoKeyTyped
+
+    private void txtFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaKeyTyped
+        
+        char validar= evt.getKeyChar();
+        if(Character.isLetter(validar)){
+             getToolkit().beep();
+             evt.consume();
+             JOptionPane.showMessageDialog(rootPane, "Ingrese números solamente");
+        }
+    }//GEN-LAST:event_txtFechaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
