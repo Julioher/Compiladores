@@ -2,6 +2,7 @@
 package formularios;
 import clases.claseCargos;
 import javax.swing.JOptionPane;
+
 import clases.limpiarAhora;
 
 public class frmCargos extends javax.swing.JInternalFrame {
@@ -11,6 +12,7 @@ public class frmCargos extends javax.swing.JInternalFrame {
      */
     public frmCargos() {
         initComponents();
+            this.setLocation(450, 100);
     }
 
     /**
@@ -362,4 +364,6 @@ public class frmCargos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIdCargo;
     // End of variables declaration//GEN-END:variables
+
+    
 }

@@ -11,6 +11,7 @@ public class frmHerramientas extends javax.swing.JInternalFrame {
      */
     public frmHerramientas() {
         initComponents();
+         this.setLocation(350, 60);
     }
 
     /**
