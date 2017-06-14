@@ -1,6 +1,8 @@
 
 package clases;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +22,26 @@ public class claseEmpleados extends DefaultTableModel{
     public String telefono;
     public String fecha;
     public Boolean estadoComando = false;
+    
+    
+    public claseEmpleados(int idEmpleado, String pNombre, String sNombre){
+     
+        this.idEmpleado = idEmpleado;
+        this.estado = estado;
+        this.pNombre = pNombre;
+        this.sNombre = sNombre;
+        this.pApellido = pApellido;
+        this.sApellido = sApellido;
+        this.dui = dui;
+        this.nit = nit;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.fecha = fecha;
+    }
+    
+    public claseEmpleados(){
+    
+    }
 
     public int getEstado() {
         return estado;
@@ -250,4 +272,39 @@ public class claseEmpleados extends DefaultTableModel{
             return false;
         }
     }
+    
+    //Método que mostrará en el comboBox el campo pNombre y sNombre de la tabla empleados
+    
+     Statement st;
+    ResultSet rs;
+    
+     public void mostrarEmpleados(JComboBox<claseEmpleados> cmbEmpleados){
+       
+        try{
+            claseConexion  claseConexion = new claseConexion();
+            claseConexion.conectar();
+            st = claseConexion.objetoConexion.createStatement();
+            String consulta = "SELECT idEmpleado, pNombre, sNombre FROM empleados";
+            rs = st.executeQuery(consulta);
+            while(rs.next()){
+                cmbEmpleados.addItem(
+                      
+                       new claseEmpleados(
+                               rs.getInt("idEmpleado"),
+                               rs.getObject("pNombre").toString(),
+                                rs.getObject("sNombre").toString()
+                       )
+                        
+                );
+            }
+        }catch(Exception ex){
+           Logger.getLogger(claseCargos.class.getName()).log(Level.SEVERE, null, ex);
+           
+        }
+       
+   }
+      public String toString(){
+   
+       return pNombre + " "+sNombre;
+   }
 }

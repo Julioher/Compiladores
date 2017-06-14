@@ -1,6 +1,8 @@
 
 package clases;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,6 +14,19 @@ public class claseCargos  extends DefaultTableModel{
      public String  fecha;
      public Boolean estadoComando = false;
 
+   
+       public claseCargos(int idCargo, String cargo, String fecha){
+         this.idCargo = idCargo;
+         this.cargo = cargo;
+         this.fecha = fecha;
+     }
+       
+         public claseCargos(){
+       
+     }
+    
+  
+     
     public int getIdCargo() {
         return idCargo;
     }
@@ -120,4 +135,45 @@ public class claseCargos  extends DefaultTableModel{
             return false;
         }
     }
+    
+    
+    //Método que mostrará en el comboBox los el campo cargos de la tabla cargos
+    
+     Statement st;
+    ResultSet rs;
+    
+     public void mostrarCargos(JComboBox<claseCargos> cmbCargo){
+       
+        try{
+            claseConexion  claseConexion = new claseConexion();
+            claseConexion.conectar();
+            st = claseConexion.objetoConexion.createStatement();
+            String consulta = "SELECT * FROM cargos";
+            rs = st.executeQuery(consulta);
+            while(rs.next()){
+                cmbCargo.addItem(
+                      
+                       new claseCargos(
+                               rs.getInt("idCargo"),
+                               rs.getObject("Cargo").toString(),
+                                rs.getObject("fecha").toString()
+                       )
+                        
+                );
+            }
+        }catch(Exception ex){
+           Logger.getLogger(claseCargos.class.getName()).log(Level.SEVERE, null, ex);
+           
+        }
+       
+   }
+     
+   public String toString(){
+   
+       return cargo;
+   }
+    
+   
+    
+    
 }

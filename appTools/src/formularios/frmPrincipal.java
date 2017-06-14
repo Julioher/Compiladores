@@ -1,6 +1,9 @@
 
 package formularios;
 import formularios.frmEmpleados;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class frmPrincipal extends javax.swing.JFrame {
@@ -28,7 +31,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jmInicio = new javax.swing.JMenu();
         jmNuevo = new javax.swing.JMenuItem();
         jmCargos = new javax.swing.JMenuItem();
-        jmSalir = new javax.swing.JMenuItem();
+        jmAsignarCargos = new javax.swing.JMenuItem();
         jmHerramientas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
@@ -68,13 +71,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         jmInicio.add(jmCargos);
 
-        jmSalir.setText("Salir");
-        jmSalir.addActionListener(new java.awt.event.ActionListener() {
+        jmAsignarCargos.setText("Asignar Cargos");
+        jmAsignarCargos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmSalirActionPerformed(evt);
+                jmAsignarCargosActionPerformed(evt);
             }
         });
-        jmInicio.add(jmSalir);
+        jmInicio.add(jmAsignarCargos);
 
         jmHerramientas.setText("Herramientas");
         jmHerramientas.addActionListener(new java.awt.event.ActionListener() {
@@ -113,10 +116,17 @@ public class frmPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jmCargosActionPerformed
 
-    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
+    private void jmAsignarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAsignarCargosActionPerformed
         
-        this.dispose();
-    }//GEN-LAST:event_jmSalirActionPerformed
+        frmAsignarCargos objAsignarCargos = null;
+        try {
+            objAsignarCargos = new frmAsignarCargos();
+        } catch (SQLException ex) {
+            Logger.getLogger(frmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jEscritorio.add(objAsignarCargos);
+        objAsignarCargos.setVisible(true);
+    }//GEN-LAST:event_jmAsignarCargosActionPerformed
 
     private void jmNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNuevoActionPerformed
         
@@ -171,11 +181,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane jEscritorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jmAsignarCargos;
     private javax.swing.JMenuItem jmCargos;
     private javax.swing.JMenuItem jmHerramientas;
     private javax.swing.JMenu jmInicio;
     private javax.swing.JMenuItem jmNuevo;
     private javax.swing.JMenuBar jmPrincipal;
-    private javax.swing.JMenuItem jmSalir;
     // End of variables declaration//GEN-END:variables
 }

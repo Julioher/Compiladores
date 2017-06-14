@@ -1,13 +1,26 @@
 
 package formularios;
+import clases.claseAsignarCargos;
+import clases.claseCargos;
+import clases.claseEmpleados;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import org.jdesktop.swingx.autocomplete.ObjectToStringConverter;
 
 public class frmAsignarCargos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmAsignarCargos
      */
-    public frmAsignarCargos() {
+    public frmAsignarCargos() throws SQLException {
         initComponents();
+         this.setLocation(475, 150);
+         claseCargos objclaseCargos = new claseCargos();
+         objclaseCargos.mostrarCargos(cmbCargo);
+         claseEmpleados objclaseEmpleados = new claseEmpleados();
+         objclaseEmpleados.mostrarEmpleados(cmbEmpleados);
+         AutoCompleteDecorator.decorate(cmbEmpleados, ObjectToStringConverter.DEFAULT_IMPLEMENTATION);
     }
 
     /**
@@ -22,9 +35,9 @@ public class frmAsignarCargos extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtEmpleado = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         cmbCargo = new javax.swing.JComboBox<>();
+        cmbEmpleados = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
 
@@ -39,8 +52,6 @@ public class frmAsignarCargos extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Cargo:");
 
-        cmbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione..." }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -52,8 +63,8 @@ public class frmAsignarCargos extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtEmpleado)
-                    .addComponent(cmbCargo, 0, 210, Short.MAX_VALUE))
+                    .addComponent(cmbCargo, 0, 210, Short.MAX_VALUE)
+                    .addComponent(cmbEmpleados, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -62,7 +73,7 @@ public class frmAsignarCargos extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -114,7 +125,7 @@ public class frmAsignarCargos extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,12 +134,12 @@ public class frmAsignarCargos extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JComboBox<String> cmbCargo;
+    private javax.swing.JComboBox<claseCargos> cmbCargo;
+    private javax.swing.JComboBox<claseEmpleados> cmbEmpleados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtEmpleado;
     // End of variables declaration//GEN-END:variables
 }
